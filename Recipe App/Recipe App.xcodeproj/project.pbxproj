@@ -24,6 +24,8 @@
 		AA862894248AE43000D9DE97 /* MealsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA862893248AE43000D9DE97 /* MealsVC.swift */; };
 		AA862896248AE44800D9DE97 /* ShoppingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA862895248AE44800D9DE97 /* ShoppingVC.swift */; };
 		AA862898248AE45500D9DE97 /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA862897248AE45500D9DE97 /* FavouritesVC.swift */; };
+		AA86289A248BC4BA00D9DE97 /* Meals.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA862899248BC4BA00D9DE97 /* Meals.swift */; };
+		AA86289C248BC4C700D9DE97 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86289B248BC4C700D9DE97 /* Ingredients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		AA862893248AE43000D9DE97 /* MealsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsVC.swift; sourceTree = "<group>"; };
 		AA862895248AE44800D9DE97 /* ShoppingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVC.swift; sourceTree = "<group>"; };
 		AA862897248AE45500D9DE97 /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
+		AA862899248BC4BA00D9DE97 /* Meals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meals.swift; sourceTree = "<group>"; };
+		AA86289B248BC4C700D9DE97 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +91,7 @@
 				AA8628762488DE7700D9DE97 /* LaunchScreen.storyboard */,
 				AA8628792488DE7700D9DE97 /* Info.plist */,
 				AA862884248A980300D9DE97 /* MenuController.swift */,
-				AA86288B248ACBEA00D9DE97 /* Protocols.swift */,
 				AA86288D248AD53000D9DE97 /* MenuOption.swift */,
-				AA86288F248AD9E400D9DE97 /* MenuOptionValues.swift */,
 			);
 			path = "Recipe App";
 			sourceTree = "<group>";
@@ -97,7 +99,11 @@
 		AA862881248A8B5E00D9DE97 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				AA86288F248AD9E400D9DE97 /* MenuOptionValues.swift */,
+				AA86288B248ACBEA00D9DE97 /* Protocols.swift */,
 				AA862882248A8B7500D9DE97 /* CustomButton.swift */,
+				AA862899248BC4BA00D9DE97 /* Meals.swift */,
+				AA86289B248BC4C700D9DE97 /* Ingredients.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -195,7 +201,9 @@
 				AA86288A248ACB5B00D9DE97 /* MenuVC.swift in Sources */,
 				AA86288E248AD53000D9DE97 /* MenuOption.swift in Sources */,
 				AA862890248AD9E400D9DE97 /* MenuOptionValues.swift in Sources */,
+				AA86289C248BC4C700D9DE97 /* Ingredients.swift in Sources */,
 				AA862894248AE43000D9DE97 /* MealsVC.swift in Sources */,
+				AA86289A248BC4BA00D9DE97 /* Meals.swift in Sources */,
 				AA862885248A980300D9DE97 /* MenuController.swift in Sources */,
 				AA862883248A8B7500D9DE97 /* CustomButton.swift in Sources */,
 				AA862887248AC54400D9DE97 /* GlobalVC.swift in Sources */,
