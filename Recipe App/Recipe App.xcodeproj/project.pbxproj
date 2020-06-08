@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34B3C6B9248E994F00A42562 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */; };
 		AA86286C2488DE6F00D9DE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */; };
 		AA86286E2488DE6F00D9DE97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */; };
 		AA8628732488DE6F00D9DE97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628712488DE6F00D9DE97 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		AA8628682488DE6F00D9DE97 /* Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */,
 				AA862881248A8B5E00D9DE97 /* Custom */,
 				AA8628712488DE6F00D9DE97 /* Main.storyboard */,
+				34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */,
 				AA8628742488DE7700D9DE97 /* Assets.xcassets */,
 				AA8628762488DE7700D9DE97 /* LaunchScreen.storyboard */,
 				AA8628792488DE7700D9DE97 /* Info.plist */,
@@ -202,6 +205,7 @@
 				AA86288E248AD53000D9DE97 /* MenuOption.swift in Sources */,
 				AA862890248AD9E400D9DE97 /* MenuOptionValues.swift in Sources */,
 				AA86289C248BC4C700D9DE97 /* Ingredients.swift in Sources */,
+				34B3C6B9248E994F00A42562 /* MealTableViewCell.swift in Sources */,
 				AA862894248AE43000D9DE97 /* MealsVC.swift in Sources */,
 				AA86289A248BC4BA00D9DE97 /* Meals.swift in Sources */,
 				AA862885248A980300D9DE97 /* MenuController.swift in Sources */,
