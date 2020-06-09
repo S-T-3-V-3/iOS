@@ -13,6 +13,8 @@ class GlobalVC: UIViewController {
     var menuController: MenuVC!
     var currentController: UIViewController!
     var isMenuExpanded = false
+    var meals = [Meal]()
+    let data: Database = Database()
     
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     let homeStoryBoard = UIStoryboard(name: "Home", bundle: nil)
@@ -28,7 +30,13 @@ class GlobalVC: UIViewController {
     var favouritesController: FavouritesVC!
     
     // MARK: - Init
+        
+    func load() {
+        meals = data.load()
+    }
+    
     override func viewDidLoad() {
+         //Load data about meals from Database class in Custom/dataloader.swift
         super.viewDidLoad()
         
         homeController = homeStoryBoard.instantiateViewController(withIdentifier: "Home") as? HomeVC

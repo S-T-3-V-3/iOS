@@ -36,7 +36,7 @@ class MealsVC: UIViewController {
         
         var results:[Meal] = []
        
-        let meal1 = Meal(image:UIImage(imageLiteralResourceName: "food"), title: "meal 1" )
+        let meal1 = Meal(image:UIImage(imageLiteralResourceName: "food"), title: "meal 1")
         let meal2 = Meal(image:UIImage(imageLiteralResourceName: "food2"), title: "meal 2")
         let meal3 = Meal(image:UIImage(imageLiteralResourceName: "food3"), title: "meal 3")
         let meal4 = Meal(image:UIImage(imageLiteralResourceName: "food4"), title: "meal 4")

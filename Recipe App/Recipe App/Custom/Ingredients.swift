@@ -16,17 +16,21 @@ enum measurementType: String {
     case cup = "cup"
     case teaspoon = "tsp"
     case tablespoon = "tbs"
-    
     case pinch = "pinch"
     case drizzle = "drizzle"
-}
-
-struct ingredientDefinition {
-    var name: String
-    var measurementType: measurementType
+    case bunch = "bunch"
+    case none = " "
 }
 
 struct ingredient {
-    var definition: ingredientDefinition
-    var quantity: Int
+    let name: String?
+    let quantity: Int?
+    let measurement: measurementType?
+    
+    init(name: String? = nil, quantity:Int? = nil, measurement: measurementType? = nil) {
+        self.name = name
+        self.quantity = quantity
+        self.measurement = measurement
+    }
 }
+ 

@@ -13,9 +13,26 @@ class ThisWeekVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
     
+    var global: GlobalVC = GlobalVC()
+    var mealsList: [Meal] = [Meal]()
+    var str: String = ""
+    
+    @IBOutlet weak var TestLabel: UILabel!
+    
     // MARK: - Init
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        global.load() // load database
+        mealsList = global.meals //intialise meals in this VC to the meals list in GlobalVC
+        //you can also access variables in meals like: mealsList[0].title, mealsList[0].image - refer to Meals.swift
+        str += String(mealsList.count)
+        str += "\n"
+        for i in mealsList {
+            str += i.display() // display() function in Meals.swift : displays title,ingredients,instructions of a meal.
+            str += "\n"
+        }
+        TestLabel.text = str //display
         
         configureUI()
     }

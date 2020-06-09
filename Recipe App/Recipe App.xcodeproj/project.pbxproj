@@ -1,4 +1,3 @@
-
 // !$*UTF8*$!
 {
 	archiveVersion = 1;
@@ -10,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34B3C6B9248E994F00A42562 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */; };
 		34B3C6BD248F3AD400A42562 /* MealDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3C6BC248F3AD400A42562 /* MealDetailsVC.swift */; };
+		AA7ADAAE248FCD6B0085246E /* dataloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7ADAAD248FCD6B0085246E /* dataloader.swift */; };
 		AA86286C2488DE6F00D9DE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */; };
 		AA86286E2488DE6F00D9DE97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */; };
 		AA8628732488DE6F00D9DE97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628712488DE6F00D9DE97 /* Main.storyboard */; };
@@ -39,6 +39,7 @@
 /* Begin PBXFileReference section */
 		34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		34B3C6BC248F3AD400A42562 /* MealDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsVC.swift; sourceTree = "<group>"; };
+		AA7ADAAD248FCD6B0085246E /* dataloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataloader.swift; sourceTree = "<group>"; };
 		AA8628682488DE6F00D9DE97 /* Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 				AA862882248A8B7500D9DE97 /* CustomButton.swift */,
 				AA862899248BC4BA00D9DE97 /* Meals.swift */,
 				AA86289B248BC4C700D9DE97 /* Ingredients.swift */,
+				AA7ADAAD248FCD6B0085246E /* dataloader.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -231,6 +233,7 @@
 				AA862892248AE41800D9DE97 /* ThisWeekVC.swift in Sources */,
 				AA862880248A74F800D9DE97 /* HomeVC.swift in Sources */,
 				AA86286C2488DE6F00D9DE97 /* AppDelegate.swift in Sources */,
+				AA7ADAAE248FCD6B0085246E /* dataloader.swift in Sources */,
 				AA86286E2488DE6F00D9DE97 /* SceneDelegate.swift in Sources */,
 				AA862896248AE44800D9DE97 /* ShoppingVC.swift in Sources */,
 				AA86288A248ACB5B00D9DE97 /* MenuVC.swift in Sources */,
