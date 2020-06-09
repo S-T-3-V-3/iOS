@@ -86,6 +86,39 @@
             </objects>
             <point key="canvasLocation" x="3216" y="788"/>
         </scene>
+        <!--Meal DetailsVC-->
+        <scene sceneID="385-8G-wK7">
+            <objects>
+                <viewController id="ySK-Py-41j" customClass="MealDetailsVC" customModule="Recipe_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C3T-d9-Pq4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LyR-wB-1AG">
+                                <rect key="frame" x="20" y="37" width="353" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOG-L0-SRw">
+                                <rect key="frame" x="20" y="255" width="95" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ql2-Y4-wCs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OS6-W0-hqQ"/>
+                    <connections>
+                        <outlet property="MealDetailsImage" destination="LyR-wB-1AG" id="zbb-l0-r0J"/>
+                        <outlet property="MealDetailsLabel" destination="IOG-L0-SRw" id="Gdf-at-LB8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xT4-yY-QD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3957.971014492754" y="-561.16071428571422"/>
+        </scene>
         <!--MealsVC-->
         <scene sceneID="2Qh-QL-TmN">
             <objects>
@@ -123,6 +156,7 @@
                                         <connections>
                                             <outlet property="Mealimage" destination="bG4-Qd-M8X" id="qOV-Sp-OVK"/>
                                             <outlet property="Mealtext" destination="yi2-0y-hKU" id="NhP-Qi-cZP"/>
+                                            <segue destination="ySK-Py-41j" kind="show" id="bgu-SR-QBa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

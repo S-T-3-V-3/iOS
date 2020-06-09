@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34B3C6B9248E994F00A42562 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */; };
+		34B3C6BD248F3AD400A42562 /* MealDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3C6BC248F3AD400A42562 /* MealDetailsVC.swift */; };
 		AA86286C2488DE6F00D9DE97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */; };
 		AA86286E2488DE6F00D9DE97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */; };
 		AA8628732488DE6F00D9DE97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628712488DE6F00D9DE97 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		34B3C6B8248E994F00A42562 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		34B3C6BC248F3AD400A42562 /* MealDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsVC.swift; sourceTree = "<group>"; };
 		AA8628682488DE6F00D9DE97 /* Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				AA862889248ACB5B00D9DE97 /* MenuVC.swift */,
 				AA862891248AE41800D9DE97 /* ThisWeekVC.swift */,
 				AA862893248AE43000D9DE97 /* MealsVC.swift */,
+				34B3C6BC248F3AD400A42562 /* MealDetailsVC.swift */,
 				AA862895248AE44800D9DE97 /* ShoppingVC.swift */,
 				AA862897248AE45500D9DE97 /* FavouritesVC.swift */,
 			);
@@ -202,6 +205,7 @@
 				AA86286E2488DE6F00D9DE97 /* SceneDelegate.swift in Sources */,
 				AA862896248AE44800D9DE97 /* ShoppingVC.swift in Sources */,
 				AA86288A248ACB5B00D9DE97 /* MenuVC.swift in Sources */,
+				34B3C6BD248F3AD400A42562 /* MealDetailsVC.swift in Sources */,
 				AA86288E248AD53000D9DE97 /* MenuOption.swift in Sources */,
 				AA862890248AD9E400D9DE97 /* MenuOptionValues.swift in Sources */,
 				AA86289C248BC4C700D9DE97 /* Ingredients.swift in Sources */,
