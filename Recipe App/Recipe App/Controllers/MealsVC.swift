@@ -15,9 +15,11 @@ class MealsVC: UIViewController {
     
     @IBOutlet weak var MealTableView: UITableView!
     
-    var meals: [Meals] = []
+    var meals: [Meal] = []
     
     // MARK: - Init
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,23 +29,35 @@ class MealsVC: UIViewController {
         MealTableView.dataSource = self
         
         meals = loadMeals()
-        
+       
     }
     
-    func loadMeals() -> [Meals]{
+    func loadMeals() -> [Meal]{
         
-        var results:[Meals] = []
-        //let meal1 = Meals(image:UIImage(named: "food")!, title: "meal 1")
-        let meal1 = Meals(image:UIImage(imageLiteralResourceName: "food"), title: "meal 1")
-        let meal2 = Meals(image:UIImage(imageLiteralResourceName: "food2"), title: "meal 2")
-        let meal3 = Meals(image:UIImage(imageLiteralResourceName: "food3"), title: "meal 3")
+        var results:[Meal] = []
+       
+        let meal1 = Meal(image:UIImage(imageLiteralResourceName: "food"), title: "meal 1" )
+        let meal2 = Meal(image:UIImage(imageLiteralResourceName: "food2"), title: "meal 2")
+        let meal3 = Meal(image:UIImage(imageLiteralResourceName: "food3"), title: "meal 3")
+        let meal4 = Meal(image:UIImage(imageLiteralResourceName: "food4"), title: "meal 4")
+        let meal5 = Meal(image:UIImage(imageLiteralResourceName: "food5"), title: "meal 5")
+        let meal6 = Meal(image:UIImage(imageLiteralResourceName: "food6"), title: "meal 6")
+        let meal7 = Meal(image:UIImage(imageLiteralResourceName: "food7"), title: "meal 7")
+        let meal8 = Meal(image:UIImage(imageLiteralResourceName: "food8"), title: "meal 8")
         
         results.append(meal1)
         results.append(meal2)
         results.append(meal3)
+        results.append(meal4)
+        results.append(meal5)
+        results.append(meal6)
+        results.append(meal7)
+        results.append(meal8)
         
         return results
     }
+    
+  
     
     // MARK: - Handlers
     @objc func handleMenuToggle() {
@@ -75,6 +89,8 @@ extension MealsVC : UITableViewDelegate{
                     DVC.GetImage = v.image
                     DVC.GetName = v.title
                     
+                    
+                    
                     self.navigationController?.pushViewController(DVC, animated: true)
                     
                 }
@@ -88,6 +104,7 @@ extension MealsVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return meals.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

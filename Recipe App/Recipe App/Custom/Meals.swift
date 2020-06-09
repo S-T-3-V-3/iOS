@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class Meals{
+class Meal{
     var image: UIImage
     var title: String
     
@@ -28,6 +28,7 @@ class Recipe {
     
     required init(name: String) {
         self.name = name
+     
     }
     
     func addIngredient(newIngredient: ingredient) {
