@@ -9,6 +9,18 @@
 import UIKit
 import Foundation
 
+
+class Meal{
+    var image: UIImage
+    var title: String
+    
+    init(image:UIImage, title: String) {
+        
+        self.image = image
+        self.title = title
+    }
+}
+
 class Recipe {
     var name: String
     var ingredients = Array<ingredient>()
@@ -16,6 +28,7 @@ class Recipe {
     
     required init(name: String) {
         self.name = name
+     
     }
     
     func addIngredient(newIngredient: ingredient) {
@@ -40,3 +53,5 @@ class Recipe {
         return result
     }
 }
+
+
