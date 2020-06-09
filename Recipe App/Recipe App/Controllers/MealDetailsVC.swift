@@ -13,15 +13,20 @@ class MealDetailsVC: UIViewController {
     @IBOutlet weak var MealDetailsImage: UIImageView!
     @IBOutlet weak var MealDetailsLabel: UILabel!
     
-    var meal : Meals?
+    //var meal : Meals?
+    
+    var GetName = String()
+    var GetImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let meal = meal{
-            self.MealDetailsImage.image = meal.image
-            self.MealDetailsLabel.text = meal.title
-        }
+        //if let meal = meal{
+            
+       MealDetailsImage.image = GetImage
+       MealDetailsLabel.text = GetName
+            
+       //}
         // Do any additional setup after loading the view.
     }
     
