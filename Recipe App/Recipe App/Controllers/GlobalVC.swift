@@ -14,7 +14,13 @@ class GlobalVC: UIViewController {
     var currentController: UIViewController!
     var isMenuExpanded = false
     
-    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+    let homeStoryBoard = UIStoryboard(name: "Home", bundle: nil)
+    let mealsStoryBoard = UIStoryboard(name: "Meals", bundle: nil)
+    let shoppingStoryBoard = UIStoryboard(name: "Shopping", bundle: nil)
+    let weekStoryBoard = UIStoryboard(name: "Week", bundle: nil)
+    let favoriteStoryBoard = UIStoryboard(name: "Favorite", bundle: nil)
+    
     var homeController: HomeVC!
     var weekController: ThisWeekVC!
     var mealsController: MealsVC!
@@ -25,11 +31,11 @@ class GlobalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeController = storyBoard.instantiateViewController(withIdentifier: "Home") as? HomeVC
-        weekController = storyBoard.instantiateViewController(withIdentifier: "Week") as? ThisWeekVC
-        mealsController = storyBoard.instantiateViewController(withIdentifier: "Meals") as? MealsVC
-        shoppingController = storyBoard.instantiateViewController(withIdentifier: "Shopping") as? ShoppingVC
-        favouritesController = storyBoard.instantiateViewController(withIdentifier: "Favourites") as? FavouritesVC
+        homeController = homeStoryBoard.instantiateViewController(withIdentifier: "Home") as? HomeVC
+        weekController = weekStoryBoard.instantiateViewController(withIdentifier: "Week") as? ThisWeekVC
+        mealsController = mealsStoryBoard.instantiateViewController(withIdentifier: "Meals") as? MealsVC
+        shoppingController = shoppingStoryBoard.instantiateViewController(withIdentifier: "Shopping") as? ShoppingVC
+        favouritesController = favoriteStoryBoard.instantiateViewController(withIdentifier: "Favourites") as? FavouritesVC
         
         homeController.delegate = self
         weekController.delegate = self

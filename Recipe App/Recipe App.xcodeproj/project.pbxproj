@@ -26,6 +26,11 @@
 		AA862898248AE45500D9DE97 /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA862897248AE45500D9DE97 /* FavouritesVC.swift */; };
 		AA86289A248BC4BA00D9DE97 /* Meals.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA862899248BC4BA00D9DE97 /* Meals.swift */; };
 		AA86289C248BC4C700D9DE97 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86289B248BC4C700D9DE97 /* Ingredients.swift */; };
+		AA86289F248F941D00D9DE97 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA86289E248F941D00D9DE97 /* Home.storyboard */; };
+		AA8628A1248F947B00D9DE97 /* Meals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A0248F947B00D9DE97 /* Meals.storyboard */; };
+		AA8628A3248F948F00D9DE97 /* Shopping.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A2248F948F00D9DE97 /* Shopping.storyboard */; };
+		AA8628A5248F94A500D9DE97 /* Week.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A4248F94A500D9DE97 /* Week.storyboard */; };
+		AA8628A7248F94C900D9DE97 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A6248F94C900D9DE97 /* Favorite.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		AA862897248AE45500D9DE97 /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		AA862899248BC4BA00D9DE97 /* Meals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meals.swift; sourceTree = "<group>"; };
 		AA86289B248BC4C700D9DE97 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		AA86289E248F941D00D9DE97 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		AA8628A0248F947B00D9DE97 /* Meals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meals.storyboard; sourceTree = "<group>"; };
+		AA8628A2248F948F00D9DE97 /* Shopping.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shopping.storyboard; sourceTree = "<group>"; };
+		AA8628A4248F94A500D9DE97 /* Week.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Week.storyboard; sourceTree = "<group>"; };
+		AA8628A6248F94C900D9DE97 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +92,11 @@
 		AA86286A2488DE6F00D9DE97 /* Recipe App */ = {
 			isa = PBXGroup;
 			children = (
+				AA86289D248F93F800D9DE97 /* Storyboards */,
 				AA862888248ACB4000D9DE97 /* Controllers */,
 				AA86286B2488DE6F00D9DE97 /* AppDelegate.swift */,
 				AA86286D2488DE6F00D9DE97 /* SceneDelegate.swift */,
 				AA862881248A8B5E00D9DE97 /* Custom */,
-				AA8628712488DE6F00D9DE97 /* Main.storyboard */,
 				AA8628742488DE7700D9DE97 /* Assets.xcassets */,
 				AA8628762488DE7700D9DE97 /* LaunchScreen.storyboard */,
 				AA8628792488DE7700D9DE97 /* Info.plist */,
@@ -120,6 +130,19 @@
 				AA862897248AE45500D9DE97 /* FavouritesVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AA86289D248F93F800D9DE97 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AA8628712488DE6F00D9DE97 /* Main.storyboard */,
+				AA86289E248F941D00D9DE97 /* Home.storyboard */,
+				AA8628A0248F947B00D9DE97 /* Meals.storyboard */,
+				AA8628A2248F948F00D9DE97 /* Shopping.storyboard */,
+				AA8628A4248F94A500D9DE97 /* Week.storyboard */,
+				AA8628A6248F94C900D9DE97 /* Favorite.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +203,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8628A3248F948F00D9DE97 /* Shopping.storyboard in Resources */,
+				AA8628A1248F947B00D9DE97 /* Meals.storyboard in Resources */,
+				AA8628A7248F94C900D9DE97 /* Favorite.storyboard in Resources */,
 				AA8628782488DE7700D9DE97 /* LaunchScreen.storyboard in Resources */,
 				AA8628752488DE7700D9DE97 /* Assets.xcassets in Resources */,
 				AA8628732488DE6F00D9DE97 /* Main.storyboard in Resources */,
+				AA8628A5248F94A500D9DE97 /* Week.storyboard in Resources */,
+				AA86289F248F941D00D9DE97 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
