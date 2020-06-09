@@ -15,6 +15,8 @@ class MealsVC: UIViewController {
     
     @IBOutlet weak var MealTableView: UITableView!
     
+    var meals: [Meals] = []
+    
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +26,23 @@ class MealsVC: UIViewController {
         MealTableView.delegate = self
         MealTableView.dataSource = self
         
+        meals = loadMeals()
+        
     }
     
+    func loadMeals() -> [Meals]{
+        
+        var results:[Meals] = []
+        let meal1 = Meals(image:UIImage(named: "food")!, title: "meal 1")
+        let meal2 = Meals(image:UIImage(named: "food2")!, title: "meal 2")
+        let meal3 = Meals(image:UIImage(named: "food3")!, title: "meal 3")
+        
+        results.append(meal1)
+        results.append(meal2)
+        results.append(meal3)
+        
+        return results
+    }
     
     // MARK: - Handlers
     @objc func handleMenuToggle() {
@@ -59,12 +76,12 @@ extension MealsVC : UITableViewDelegate{
 extension MealsVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return meals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) //as! MealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealTableViewCell
         
         /*if indexPath.row == 0{
             
@@ -74,6 +91,12 @@ extension MealsVC: UITableViewDataSource{
         //cell.textLabel?.text = "WORKING"
             
         //}
+        
+        let meal = meals[indexPath.row]
+        
+        cell.Mealimage.image = meal.image
+        cell.Mealtext.text = meal.title
+        
         return cell
     }
     
