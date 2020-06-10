@@ -12,6 +12,9 @@ import UIKit
 class HomeVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
+    //temp meals until I can retrieve meals from other controllers
+    let popularMeal = Meal(image:UIImage(imageLiteralResourceName: "food"), title: "meal 1" )
+    let newMeal = Meal(image:UIImage(imageLiteralResourceName: "food8"), title: "meal 8")
     
     // MARK: - Init
     override func viewDidLoad() {
