@@ -15,12 +15,10 @@ class ThisWeekVC: UIViewController{
     
     @IBOutlet weak var weekTableView: UITableView!
     
-    var global: GlobalVC = GlobalVC()
+    var global: GlobalVC!
     var meals: [Meal] = [Meal]()
     
     // MARK: - Init
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -49,16 +47,12 @@ class ThisWeekVC: UIViewController{
 
 extension ThisWeekVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let Storybard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard?.instantiateViewController(identifier: "WeekDetailsVC") as? WeekDetailsVC
-        self.navigationController?.pushViewController(vc!, animated: true)
-        /*if let DVC = Storybard.instantiateViewController(identifier: "MealDetailsVC") as? MealDetailsVC {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let v = meals[indexPath.row]
-                DVC.GetName = v.title
-                self.navigationController?.pushViewController(DVC, animated: true)
-            }
-        }*/
+        let currentMeal: Meal = global.meals[indexPath.row]
+        
+        self.present(global.mealDetailsController, animated: true, completion: nil)
+        
+        global.mealDetailsController.NavigationTitle.title = currentMeal.title
+        global.mealDetailsController.MealImage.image = currentMeal.image
     }
 }
 
