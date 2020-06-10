@@ -36,6 +36,7 @@ class HomeVC: UIViewController {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Home)
     }
     
+    //Set up the menu and nav bar design
     func configureUI() {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
@@ -45,6 +46,7 @@ class HomeVC: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
     }
     
+    //Show the most popular and newest meal
     func showMeals(){
         let randomIndex = Int.random(in: 0..<meals.count-1)
         let newMealName: String = meals.last!.title
@@ -56,7 +58,5 @@ class HomeVC: UIViewController {
         popularImage?.image = popularMealImage
         newLabel?.text = newMealName
         newImage?.image = newMealImage
-        print("new meal: \(newMealName)")
-        print("pop meal: \(popularMealName)")
     }
 }
