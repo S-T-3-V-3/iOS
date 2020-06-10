@@ -21,8 +21,7 @@ class FavouritesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
-        meals = global.meals
+        meals = global.getFavourites()
         FavTableView.delegate = self
         FavTableView.dataSource = self
     }

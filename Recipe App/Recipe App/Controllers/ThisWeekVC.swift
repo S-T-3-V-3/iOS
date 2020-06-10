@@ -25,8 +25,7 @@ class ThisWeekVC: UIViewController{
         
         weekTableView.delegate = self
         weekTableView.dataSource = self
-        
-        meals = global.meals
+        meals = global.getThisWeek()
     }
    
     // MARK: - Handlers

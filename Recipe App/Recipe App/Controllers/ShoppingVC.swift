@@ -24,8 +24,8 @@ class ShoppingVC: UIViewController {
         
         ShoppingTableView.dataSource = self
         
-        selectedMeals = global.meals
-        for i in global.meals {
+        selectedMeals = global.getThisWeek()
+        for i in selectedMeals {
             ingredientList.append(contentsOf: i.ingredients)
         }
         combineIngredients()
