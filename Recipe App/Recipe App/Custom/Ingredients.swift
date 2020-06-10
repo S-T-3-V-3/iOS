@@ -24,7 +24,7 @@ enum measurementType: String {
 
 struct ingredient {
     let name: String?
-    let quantity: Int?
+    var quantity: Int?
     let measurement: measurementType?
     
     init(name: String? = nil, quantity:Int? = nil, measurement: measurementType? = nil) {

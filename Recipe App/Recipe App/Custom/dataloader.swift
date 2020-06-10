@@ -135,7 +135,7 @@ class Database{
         m6.addIngredient(newIngredient: ingredient(name:"brown onion", quantity:1, measurement:measurementType.none))
         m6.addIngredient(newIngredient: ingredient(name:"chicken breast", quantity:350, measurement:measurementType.gram))
         m6.addIngredient(newIngredient: ingredient(name:"rosemary", quantity:1, measurement:measurementType.bunch))
-        m6.addIngredient(newIngredient: ingredient(name:"chilli flakes", quantity:1, measurement:measurementType.pinch))
+        m6.addIngredient(newIngredient: ingredient(name:"chilli flakes", quantity:5, measurement:measurementType.gram))
         m6.addIngredient(newIngredient: ingredient(name:"green beans", quantity:200, measurement:measurementType.gram))
         m6.addIngredient(newIngredient: ingredient(name:"brown sugar", quantity:2, measurement:measurementType.teaspoon))
         m6.addIngredient(newIngredient: ingredient(name:"fetta", quantity:50, measurement:measurementType.gram))

@@ -65,6 +65,7 @@ extension ThisWeekVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
         let meal = meals[indexPath.row]
         cell.Mealtext.text = meal.title
+        cell.WeekImage.image = meal.image
         return cell
     }
 }
