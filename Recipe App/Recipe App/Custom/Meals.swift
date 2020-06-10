@@ -43,6 +43,10 @@ class Meal{
         return result
     }
     
+    func numberOfIngredients() -> Int {
+        return ingredients.count
+    }
+    
     func displayIngredients() -> String{
         var result: String = ""
         

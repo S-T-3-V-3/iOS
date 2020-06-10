@@ -10,6 +10,8 @@ import UIKit
 
 class MealTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var ingredientName: UILabel?
+    @IBOutlet weak var ingredientQuantity: UILabel?
     @IBOutlet weak var Mealimage: UIImageView!
     @IBOutlet weak var Mealtext: UILabel!
     
