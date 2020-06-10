@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,10 +56,10 @@
                         <viewLayoutGuide key="safeArea" id="g4O-hm-dx7"/>
                     </view>
                     <connections>
-                        <outlet property="newImage" destination="ogF-E3-MVe" id="nfI-hi-f6T"/>
-                        <outlet property="newLabel" destination="dVV-Dl-k4F" id="Nyt-Qz-vez"/>
-                        <outlet property="popularImage" destination="xV2-3p-OfR" id="AMw-CE-Zfo"/>
-                        <outlet property="popularLabel" destination="qqD-qd-Cg8" id="QJi-1T-XNF"/>
+                        <outlet property="newImage" destination="ogF-E3-MVe" id="U6n-2K-0s5"/>
+                        <outlet property="newLabel" destination="dVV-Dl-k4F" id="Y6I-JT-sgM"/>
+                        <outlet property="popularImage" destination="xV2-3p-OfR" id="Gxa-Cv-Cgu"/>
+                        <outlet property="popularLabel" destination="qqD-qd-Cg8" id="n3D-sE-SZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYi-hk-Cms" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

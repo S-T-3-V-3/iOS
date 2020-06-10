@@ -13,7 +13,6 @@ class HomeVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
     var global: GlobalVC = GlobalVC()
-    var meals: [Meal] = [Meal]()
     
     @IBOutlet weak var popularLabel: UILabel?
     @IBOutlet weak var newLabel: UILabel?
@@ -24,10 +23,7 @@ class HomeVC: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         configureUI()
-        global.load()
-        meals = global.meals
         showMeals()
     }
     
@@ -47,15 +43,21 @@ class HomeVC: UIViewController {
     }
     
     //Show the most popular and newest meal
-    func showMeals(){
-        let randomIndex = Int.random(in: 0..<meals.count-1)
-        let newMealName: String = meals.last!.title
-        let newMealImage: UIImage = meals.last!.image
-        let popularMealName: String = meals[randomIndex].title
-        let popularMealImage: UIImage = meals[randomIndex].image
+    func showMeals() {
+        if global.meals.count == 0 {
+            global.meals = global.data.load()
+        }
+        let randomIndex = Int.random(in: 0 ..< global.meals.count-1)
+        
+        let newMealName: String = global.meals.last!.title
+        let newMealImage: UIImage = global.meals.last!.image
+        
+        let popularMealName: String = global.meals[randomIndex].title
+        let popularMealImage: UIImage = global.meals[randomIndex].image
         
         popularLabel?.text = popularMealName
         popularImage?.image = popularMealImage
+        
         newLabel?.text = newMealName
         newImage?.image = newMealImage
     }

@@ -34,7 +34,6 @@ class GlobalVC: UIViewController {
     override func viewDidLoad() {
          //Load data about meals from Database class in Custom/dataloader.swift
         super.viewDidLoad()
-        meals = data.load()
         
         homeController =        homeStoryBoard.instantiateViewController(withIdentifier: "Home") as? HomeVC
         weekController =        weekStoryBoard.instantiateViewController(withIdentifier: "Week") as? ThisWeekVC
@@ -43,19 +42,24 @@ class GlobalVC: UIViewController {
         shoppingController =    shoppingStoryBoard.instantiateViewController(withIdentifier: "Shopping") as? ShoppingVC
         favouritesController =  favoriteStoryBoard.instantiateViewController(withIdentifier: "Favourites") as? FavouritesVC
         
-        homeController.delegate = self
-        weekController.delegate = self
-        mealsController.delegate = self
-        mealDetailsController.delegate = self
-        shoppingController.delegate = self
-        favouritesController.delegate = self
-        
-        mealsController.global = self
-        weekController.global = self
-
         meals = data.load()
         
+        homeController.delegate = self
+        homeController.global = self
+        
+        weekController.delegate = self
+        weekController.global = self
+        
+        mealsController.delegate = self
+        mealsController.global = self
+        
+        mealDetailsController.delegate = self
+        mealDetailsController.global = self
+        
+        shoppingController.delegate = self
         shoppingController.global = self
+        
+        favouritesController.delegate = self
         
         showHomeController()
     }
@@ -100,7 +104,6 @@ class GlobalVC: UIViewController {
     
     // Return a list of current favourite meals
     func getFavourites() -> [Meal] {
-        meals = data.load()
         var favourites = [Meal]()
         let favIndex: [Int] = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
         
@@ -138,7 +141,6 @@ class GlobalVC: UIViewController {
     
     // Return a list of current favourite meals
     func getThisWeek() -> [Meal] {
-        meals = data.load()
         var thisWeek = [Meal]()
         let thisWeekIndex: [Int] = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
         
@@ -169,6 +171,7 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
+            homeController.global = self
             homeController.configureUI()
         }
     }
@@ -183,6 +186,7 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
+            weekController.global = self
             weekController.configureUI()
         }
     }
@@ -197,6 +201,7 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
+            mealsController.global = self
             mealsController.configureUI()
         }
     }
@@ -211,6 +216,7 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
+            shoppingController.global = self
             shoppingController.configureUI()
         }
     }
@@ -225,6 +231,7 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
+            //favouritesController.global = self
             favouritesController.configureUI()
         }
     }

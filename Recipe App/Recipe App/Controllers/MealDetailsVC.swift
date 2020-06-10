@@ -14,6 +14,8 @@ class MealDetailsVC: UIViewController {
     @IBOutlet weak var MealImage: UIImageView!
     @IBOutlet weak var NavigationTitle: UINavigationItem!
     
+    var global: GlobalVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
