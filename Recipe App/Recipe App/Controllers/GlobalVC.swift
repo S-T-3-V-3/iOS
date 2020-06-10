@@ -240,7 +240,7 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
-            //favouritesController.global = self
+            favouritesController.global = self
             favouritesController.configureUI()
         }
     }
