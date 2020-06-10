@@ -18,21 +18,19 @@ class ShoppingVC: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func loaded() {
+        
         var str: String = ""
         let test: String = String(global.meals.count)
         str += test
         for i in global.meals {
             str += i.displayIngredients()
         }
-        DispatchQueue.main.async() {
-            self.ingredientText!.text = "A"
-            self.ingredientText!.text = str
-        }
+        
+        ingredientText.text = "A"
+        ingredientText.text = str
         configureUI()
     }
+    
     
     // MARK: - Handlers
     @objc func handleMenuToggle() {

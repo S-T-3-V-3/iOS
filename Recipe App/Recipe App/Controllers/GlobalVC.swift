@@ -57,8 +57,6 @@ class GlobalVC: UIViewController {
         meals = data.load()
         
         shoppingController.global = self
-        shoppingController.viewDidLoad()
-        shoppingController.loaded()
         
         showHomeController()
     }
