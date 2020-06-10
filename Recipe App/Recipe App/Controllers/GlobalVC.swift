@@ -50,6 +50,9 @@ class GlobalVC: UIViewController {
         mealsController.delegate = self
         shoppingController.delegate = self
         favouritesController.delegate = self
+        
+        mealsController.global = self
+        weekController.global = self
 
         showHomeController()
     }
