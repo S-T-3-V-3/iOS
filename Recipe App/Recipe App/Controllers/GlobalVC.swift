@@ -67,6 +67,82 @@ class GlobalVC: UIViewController {
     }
 
     // MARK: - Handlers
+    func addToFavourites(index: Int) {
+        // Load favourits
+        var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
+        var doesExist = false
+        
+        // Check to see if this index already exists
+        for favIndex in favourites {
+            if favIndex == index {
+                doesExist = true
+            }
+        }
+        
+        // If it doesnt exist, update favourites
+        if !doesExist {
+            favourites.append(index)
+            UserDefaults.standard.set(favourites, forKey: "favourites")
+        }
+    }
+    
+    func removeFromFacourites(index: Int) {
+        var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
+        favourites.removeAll{$0 == index}
+        UserDefaults.standard.set(favourites, forKey: "favourites")
+    }
+    
+    // Return a list of current favourite meals
+    func getFavourites() -> [Meal] {
+        meals = data.load()
+        var favourites = [Meal]()
+        let favIndex: [Int] = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
+        
+        for index in favIndex {
+            favourites.append(meals[index])
+        }
+        
+        return favourites
+    }
+    
+    func addToThisWeek(index: Int) {
+        // Load this week
+        var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
+        var doesExist = false
+        
+        // Check to see if this index already exists
+        for thisWeekIndex in thisWeek {
+            if thisWeekIndex == index {
+                doesExist = true
+            }
+        }
+        
+        // If it doesnt exist, update this week
+        if !doesExist {
+            thisWeek.append(index)
+            UserDefaults.standard.set(thisWeek, forKey: "thisWeek")
+        }
+    }
+    
+    func removeFromThisWeek(index: Int) {
+        var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
+        thisWeek.removeAll{$0 == index}
+        UserDefaults.standard.set(thisWeek, forKey: "thisWeek")
+    }
+    
+    // Return a list of current favourite meals
+    func getThisWeek() -> [Meal] {
+        meals = data.load()
+        var thisWeek = [Meal]()
+        let thisWeekIndex: [Int] = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
+        
+        for index in thisWeekIndex {
+            thisWeek.append(meals[index])
+        }
+        
+        return thisWeek
+    }
+    
     func configureMenuController() {
         if menuController == nil {
             menuController = MenuVC()
