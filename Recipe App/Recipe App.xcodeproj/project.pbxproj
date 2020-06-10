@@ -34,6 +34,7 @@
 		AA8628A3248F948F00D9DE97 /* Shopping.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A2248F948F00D9DE97 /* Shopping.storyboard */; };
 		AA8628A5248F94A500D9DE97 /* Week.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A4248F94A500D9DE97 /* Week.storyboard */; };
 		AA8628A7248F94C900D9DE97 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8628A6248F94C900D9DE97 /* Favorite.storyboard */; };
+		AA9038BE2491102800271A19 /* WeekDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9038BD2491102800271A19 /* WeekDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		AA8628A2248F948F00D9DE97 /* Shopping.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shopping.storyboard; sourceTree = "<group>"; };
 		AA8628A4248F94A500D9DE97 /* Week.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Week.storyboard; sourceTree = "<group>"; };
 		AA8628A6248F94C900D9DE97 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
+		AA9038BD2491102800271A19 /* WeekDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				34B3C6BC248F3AD400A42562 /* MealDetailsVC.swift */,
 				AA862895248AE44800D9DE97 /* ShoppingVC.swift */,
 				AA862897248AE45500D9DE97 /* FavouritesVC.swift */,
+				AA9038BD2491102800271A19 /* WeekDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				AA86286C2488DE6F00D9DE97 /* AppDelegate.swift in Sources */,
 				AA7ADAAE248FCD6B0085246E /* dataloader.swift in Sources */,
 				AA86286E2488DE6F00D9DE97 /* SceneDelegate.swift in Sources */,
+				AA9038BE2491102800271A19 /* WeekDetailsVC.swift in Sources */,
 				AA862896248AE44800D9DE97 /* ShoppingVC.swift in Sources */,
 				AA86288A248ACB5B00D9DE97 /* MenuVC.swift in Sources */,
 				34B3C6BD248F3AD400A42562 /* MealDetailsVC.swift in Sources */,

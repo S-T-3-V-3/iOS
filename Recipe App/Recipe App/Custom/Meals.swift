@@ -47,7 +47,7 @@ class Meal{
         var result: String = ""
         
         for i in ingredients {
-            let s = i.name! + " " + String(i.quantity!) + "\n" //could not figure out how to print enum value yet
+            let s = i.name! + " " + String(i.quantity!) + i.measurement!.rawValue + "\n" //could not figure out how to print enum value yet
             result += s
         }
         return result

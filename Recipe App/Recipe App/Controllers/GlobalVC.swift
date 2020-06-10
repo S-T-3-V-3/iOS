@@ -51,6 +51,12 @@ class GlobalVC: UIViewController {
         shoppingController.delegate = self
         favouritesController.delegate = self
 
+        meals = data.load()
+        
+        shoppingController.global = self
+        shoppingController.viewDidLoad()
+        shoppingController.loaded()
+        
         showHomeController()
     }
     
