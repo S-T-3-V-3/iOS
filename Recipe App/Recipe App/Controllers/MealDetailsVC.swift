@@ -9,27 +9,12 @@
 import UIKit
 
 class MealDetailsVC: UIViewController {
-
-    @IBOutlet weak var MealDetailsImage: UIImageView!
-    @IBOutlet weak var MealDetailsLabel: UILabel!
     
-    @IBOutlet weak var MealDetailsRecipe: UILabel!
-    
-    var GetName = String()
-    var GetImage = UIImage()
-    
-    
+    var delegate: HomeControllerDelegate?
+    @IBOutlet weak var MealImage: UIImageView!
+    @IBOutlet weak var NavigationTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-            
-       MealDetailsImage.image = GetImage
-       MealDetailsLabel.text = GetName
-        
-        
-            
     }
-
-
 }

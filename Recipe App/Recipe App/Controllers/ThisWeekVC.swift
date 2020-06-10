@@ -23,7 +23,17 @@ class ThisWeekVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        global.load()
+        //global.load() // load database
+        mealsList = global.meals //intialise meals in this VC to the meals list in GlobalVC
+        //you can also access variables in meals like: mealsList[0].title, mealsList[0].image - refer to Meals.swift
+        str += String(mealsList.count)
+        str += "\n"
+        for i in mealsList {
+            str += i.display() // display() function in Meals.swift : displays title,ingredients,instructions of a meal.
+            str += "\n"
+        }
+        TestLabel.text = str //display
+        
         configureUI()
         
         weekTableView.delegate = self

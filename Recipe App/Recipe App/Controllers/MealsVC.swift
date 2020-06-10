@@ -14,15 +14,12 @@ class MealsVC: UIViewController {
     var delegate: HomeControllerDelegate?
     
     @IBOutlet weak var MealTableView: UITableView!
-    var global: GlobalVC = GlobalVC()
+    var global: GlobalVC!
     var meals: [Meal] = [Meal]()
     
     // MARK: - Init
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        global.load()
         configureUI()
         
         MealTableView.delegate = self
@@ -30,8 +27,6 @@ class MealsVC: UIViewController {
         
         meals = global.meals
     }
-    
-  
     
     // MARK: - Handlers
     @objc func handleMenuToggle() {
@@ -49,18 +44,14 @@ class MealsVC: UIViewController {
     
 }
 
-extension MealsVC : UITableViewDelegate{
+extension MealsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let Storybard = UIStoryboard(name: "Main", bundle: nil)
+        let currentMeal: Meal = global.meals[indexPath.row]
         
-        if let DVC = Storybard.instantiateViewController(identifier: "MealDetailsVC") as? MealDetailsVC {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let v = meals[indexPath.row]
-                DVC.GetImage = v.image
-                DVC.GetName = v.title
-                self.navigationController?.pushViewController(DVC, animated: true)
-            }
-        }
+        self.present(global.mealDetailsController, animated: true, completion: nil)
+        
+        global.mealDetailsController.NavigationTitle.title = currentMeal.title
+        global.mealDetailsController.MealImage.image = currentMeal.image
     }
 }
 
@@ -70,7 +61,7 @@ extension MealsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
         let meal = meals[indexPath.row]
         cell.Mealimage.image = meal.image
         cell.Mealtext.text = meal.title
