@@ -14,6 +14,7 @@ class MealsVC: UIViewController {
     var delegate: HomeControllerDelegate?
     
     @IBOutlet weak var MealTableView: UITableView!
+    
     var global: GlobalVC!
     var meals: [Meal] = [Meal]()
     
@@ -52,6 +53,8 @@ extension MealsVC: UITableViewDelegate {
         
         global.mealDetailsController.NavigationTitle.title = currentMeal.title
         global.mealDetailsController.MealImage.image = currentMeal.image
+        global.mealDetailsController.instructions.text = currentMeal.display()
+        global.mealDetailsController.mealIndex = indexPath.row
     }
 }
 

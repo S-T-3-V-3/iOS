@@ -94,12 +94,16 @@ class GlobalVC: UIViewController {
             favourites.append(index)
             UserDefaults.standard.set(favourites, forKey: "favourites")
         }
+        
+        viewDidLoad()
     }
     
     func removeFromFacourites(index: Int) {
         var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
         favourites.removeAll{$0 == index}
         UserDefaults.standard.set(favourites, forKey: "favourites")
+        
+        viewDidLoad()
     }
     
     // Return a list of current favourite meals
@@ -131,12 +135,16 @@ class GlobalVC: UIViewController {
             thisWeek.append(index)
             UserDefaults.standard.set(thisWeek, forKey: "thisWeek")
         }
+        
+        viewDidLoad()
     }
     
     func removeFromThisWeek(index: Int) {
         var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
         thisWeek.removeAll{$0 == index}
         UserDefaults.standard.set(thisWeek, forKey: "thisWeek")
+        
+        viewDidLoad()
     }
     
     // Return a list of current favourite meals
@@ -188,6 +196,7 @@ class GlobalVC: UIViewController {
             currentController.didMove(toParent: self)
             weekController.global = self
             weekController.configureUI()
+            weekController.meals = getThisWeek()
         }
     }
     
@@ -264,7 +273,7 @@ class GlobalVC: UIViewController {
                 
         mealDetailsController.MealImage.image = currentMeal.image
         //mealDetailsController.MealTitle.text = currentMeal.title
-        
+        //mealDetailsController.instructionText.text = "siba" //currentMeal.display()
     }
     
     func didSelectMenuOption(menuOption: MenuOptionValues) {

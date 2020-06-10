@@ -37,7 +37,7 @@ class Meal{
             counter += 1
             result.append("\(counter): \n")
             result.append(contentsOf: step)
-            result.append("\n")
+            result.append("\n\n")
         }
         
         return result
@@ -51,8 +51,16 @@ class Meal{
         var result: String = ""
         
         for i in ingredients {
-            let s = i.name! + " " + String(i.quantity!) + i.measurement!.rawValue + "\n" //could not figure out how to print enum value yet
-            result += s
+            if i.measurement == measurementType.drizzle {
+                result += "a drizzle of " + i.name! + "\n"
+            }
+            else if i.measurement == measurementType.bunch {
+                result += "a bunch of " + i.name! + "\n"
+            }
+            else {
+                let s = String(i.quantity!) + " " +  i.measurement!.rawValue + "  " + i.name! + " " + "\n" //could not figure out how to print enum value yet
+                result += s
+            }
         }
         return result
     }
@@ -60,7 +68,7 @@ class Meal{
     func display() -> String {
         var result: String = ""
         
-        let s: String = "Title:" + title + "\nIngredients: " + displayIngredients() + "\nInstructions: \n" + displayInstructions()
+        let s: String = "- Ingredients - \n\n" + displayIngredients() + "\n- Instructions - \n\n" + displayInstructions()
         
         result += s
         return result

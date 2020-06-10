@@ -19,7 +19,7 @@ enum measurementType: String {
     case pinch = "pinch"
     case drizzle = "drizzle"
     case bunch = "bunch"
-    case none = " "
+    case none = ""
 }
 
 struct ingredient {

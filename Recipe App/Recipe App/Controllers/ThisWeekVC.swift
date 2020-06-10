@@ -16,7 +16,7 @@ class ThisWeekVC: UIViewController{
     @IBOutlet weak var weekTableView: UITableView!
     
     var global: GlobalVC!
-    var meals: [Meal] = [Meal]()
+    var meals: [Meal]?
     
     // MARK: - Init
     override func viewDidLoad() {
@@ -25,8 +25,6 @@ class ThisWeekVC: UIViewController{
         
         weekTableView.delegate = self
         weekTableView.dataSource = self
-        
-        meals = global.meals
     }
    
     // MARK: - Handlers
@@ -58,12 +56,12 @@ extension ThisWeekVC : UITableViewDelegate{
 
 extension ThisWeekVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return meals!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
-        let meal = meals[indexPath.row]
+        let meal = meals![indexPath.row]
         cell.Mealtext.text = meal.title
         return cell
     }
