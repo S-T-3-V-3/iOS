@@ -28,28 +28,30 @@ class GlobalVC: UIViewController {
     var mealsController: MealsVC!
     var shoppingController: ShoppingVC!
     var favouritesController: FavouritesVC!
+    var mealDetailsController: MealDetailsVC!
     
     // MARK: - Init
-        
-    func load() {
-        meals = data.load()
-    }
-    
     override func viewDidLoad() {
          //Load data about meals from Database class in Custom/dataloader.swift
         super.viewDidLoad()
+        meals = data.load()
         
-        homeController = homeStoryBoard.instantiateViewController(withIdentifier: "Home") as? HomeVC
-        weekController = weekStoryBoard.instantiateViewController(withIdentifier: "Week") as? ThisWeekVC
-        mealsController = mealsStoryBoard.instantiateViewController(withIdentifier: "Meals") as? MealsVC
-        shoppingController = shoppingStoryBoard.instantiateViewController(withIdentifier: "Shopping") as? ShoppingVC
-        favouritesController = favoriteStoryBoard.instantiateViewController(withIdentifier: "Favourites") as? FavouritesVC
+        homeController =        homeStoryBoard.instantiateViewController(withIdentifier: "Home") as? HomeVC
+        weekController =        weekStoryBoard.instantiateViewController(withIdentifier: "Week") as? ThisWeekVC
+        mealsController =       mealsStoryBoard.instantiateViewController(withIdentifier: "Meals") as? MealsVC
+        mealDetailsController = mealsStoryBoard.instantiateViewController(withIdentifier: "MealDetails") as? MealDetailsVC
+        shoppingController =    shoppingStoryBoard.instantiateViewController(withIdentifier: "Shopping") as? ShoppingVC
+        favouritesController =  favoriteStoryBoard.instantiateViewController(withIdentifier: "Favourites") as? FavouritesVC
         
         homeController.delegate = self
         weekController.delegate = self
         mealsController.delegate = self
+        mealDetailsController.delegate = self
         shoppingController.delegate = self
         favouritesController.delegate = self
+        
+        mealsController.global = self
+        weekController.global = self
 
         showHomeController()
     }
@@ -240,6 +242,18 @@ class GlobalVC: UIViewController {
             
             animateStatusBar()
         }
+    }
+    
+    func showMealDetails(mealID: Int) {
+        let currentMeal = self.meals[mealID] as Meal
+
+        mealDetailsController.NavigationTitle?.title = currentMeal.title
+        self.present(mealDetailsController, animated: true, completion: nil)
+        
+                
+        mealDetailsController.MealImage.image = currentMeal.image
+        //mealDetailsController.MealTitle.text = currentMeal.title
+        
     }
     
     func didSelectMenuOption(menuOption: MenuOptionValues) {

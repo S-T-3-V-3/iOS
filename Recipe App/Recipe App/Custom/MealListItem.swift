@@ -1,14 +1,14 @@
 //
-//  MealTableViewCell.swift
+//  MealListItem.swift
 //  Recipe App
 //
-//  Created by Chengrong Zhan on 9/6/20.
+//  Created by Steve on 10/6/20.
 //  Copyright © 2020 JSSK. All rights reserved.
 //
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class MealListItem: UITableViewCell {
 
     @IBOutlet weak var Mealimage: UIImageView!
     @IBOutlet weak var Mealtext: UILabel!
@@ -23,5 +23,4 @@ class MealTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

@@ -23,7 +23,7 @@ class ThisWeekVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        global.load() // load database
+        //global.load() // load database
         mealsList = global.meals //intialise meals in this VC to the meals list in GlobalVC
         //you can also access variables in meals like: mealsList[0].title, mealsList[0].image - refer to Meals.swift
         str += String(mealsList.count)
