@@ -13,23 +13,23 @@ class ShoppingVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
     var global: GlobalVC!
-    @IBOutlet weak var ingredientText: UILabel!
+    var selectedMeals: [Meal] = []
+    var combinedIngredients: [ingredient] = []
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectedMeals = global.meals
         var str: String = ""
         let test: String = String(global.meals.count)
         str += test
         for i in global.meals {
-            str += i.displayIngredients()
+            combinedIngredients.append(contentsOf: i.ingredients)
         }
-        
-        ingredientText.text = "A"
-        ingredientText.text = str
         configureUI()
     }
+    
     
     
     // MARK: - Handlers
@@ -44,5 +44,19 @@ class ShoppingVC: UIViewController {
         
         navigationItem.title = "Shopping List"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
+    }
+}
+
+extension ShoppingVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return global.meals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingcell", for: indexPath) as! MealListItem
+        let i = combinedIngredients[indexPath.row]
+        cell.ingredientName!.text = i.name!
+        cell.ingredientQuantity!.text = String(i.quantity!) + i.measurement!.rawValue
+        return cell
     }
 }
