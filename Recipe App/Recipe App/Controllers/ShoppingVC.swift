@@ -12,11 +12,25 @@ import UIKit
 class ShoppingVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
+    var global: GlobalVC!
+    @IBOutlet weak var ingredientText: UILabel!
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    func loaded() {
+        var str: String = ""
+        let test: String = String(global.meals.count)
+        str += test
+        for i in global.meals {
+            str += i.displayIngredients()
+        }
+        DispatchQueue.main.async() {
+            self.ingredientText!.text = "A"
+            self.ingredientText!.text = str
+        }
         configureUI()
     }
     
