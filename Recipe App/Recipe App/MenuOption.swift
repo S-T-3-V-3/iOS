@@ -11,6 +11,7 @@ import UIKit
 class MenuOption: UITableViewCell {
 
     // MARK: - Properties
+    // Icon ref for menu
     let iconImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -18,6 +19,7 @@ class MenuOption: UITableViewCell {
         return iv
     }()
     
+    // Label ref for menu
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -27,6 +29,7 @@ class MenuOption: UITableViewCell {
     }()
     
     // MARK: - Init
+    // Instantiate new menu option
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -48,7 +51,4 @@ class MenuOption: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Handlers
-
 }

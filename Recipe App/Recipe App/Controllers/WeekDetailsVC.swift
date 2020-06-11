@@ -8,7 +8,7 @@
 
 import UIKit
 
-//This class is linked to ThisWeekVC.swift
+// This class is linked to ThisWeekVC.swift
 class WeekDetailsVC: UIViewController {
 
     @IBOutlet weak var mealsTitle: UILabel!

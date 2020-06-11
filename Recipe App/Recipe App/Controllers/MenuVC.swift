@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "MenuOption"
 
-//This class is for setting up the side menu
+// This class is for setting up the side menu
 class MenuVC: UIViewController {
     // MARK: - Properties
     var menuItemTable: UITableView!
@@ -25,7 +25,7 @@ class MenuVC: UIViewController {
     }
     
     // MARK: - Handlers
-    //Set up the properties of the side menu table
+    // Programmatically set the properties of the side menu table
     func configureTableView() {
         menuItemTable = UITableView()
         menuItemTable.delegate = self
@@ -45,13 +45,12 @@ class MenuVC: UIViewController {
     }
 }
 
-//Place the relevant menu options in the menu
+// Extension for configuring and placing each option in the menu table
 extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ menuItemTable: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    //Show menu name and image
     func tableView(_ menuItemTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = menuItemTable.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuOption
         

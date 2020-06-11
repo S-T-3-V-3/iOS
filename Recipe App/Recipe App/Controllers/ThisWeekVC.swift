@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-//This class is for setting up the This Week page which shows meals chosen for this week
+// This class is for setting up the This Week page which shows meals chosen for this week
 class ThisWeekVC: UIViewController{
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
@@ -28,16 +28,16 @@ class ThisWeekVC: UIViewController{
         weekTableView.delegate = self
         weekTableView.dataSource = self
         
-        //Retrieve the meals chosen this week
-        meals = global.getThisWeek()
+        meals = global.getThisWeek() // Retrieves list of this weeks meals from instanced global view controller
     }
    
     // MARK: - Handlers
-    //Handles the side menu selection
+    // Toggles the menu, highlighting the selected option
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Meals)
     }
     
+    // Update the navigation bar
     func configureUI() {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
@@ -49,7 +49,7 @@ class ThisWeekVC: UIViewController{
     
 }
 
-//Set up the format of meals displayed
+// Set up the format for displaying the this weeks meals
 extension ThisWeekVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentMeal: Meal = global.meals[indexPath.row]
@@ -63,13 +63,13 @@ extension ThisWeekVC : UITableViewDelegate{
     }
 }
 
-//Display the meals in the table
+// Display this weeks meals
 extension ThisWeekVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meals!.count
     }
     
-    //Show meal name and image
+    // Set meal image and name
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
         let meal = meals![indexPath.row]

@@ -9,7 +9,7 @@
 import UIKit
 
 
-//This class is for showing the recipe of a meal that is clicked
+//This class is for showing the image, recipe and ingredients of a meal that is clicked
 class MealDetailsVC: UIViewController {
     
     var delegate: HomeControllerDelegate?
@@ -20,11 +20,11 @@ class MealDetailsVC: UIViewController {
     @IBOutlet weak var NavigationTitle: UINavigationItem!
     @IBOutlet weak var instructions: UITextView!
     
-    //Add this meal to favourites when user clicks favourite button
+    // Add this meal to favourites when user clicks favourite button
     @IBAction func OnFavouritesClicked(_ sender: Any) {
         global.addToFavourites(index: mealIndex!)
     }
-    //Add this meal to This Week when user clicks cart button
+    // Add this meal to This Week when user clicks cart button
     @IBAction func OnThisWeekClicked(_ sender: Any) {
         global.addToThisWeek(index: mealIndex!)
     }

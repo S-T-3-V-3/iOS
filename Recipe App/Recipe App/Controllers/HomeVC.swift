@@ -16,7 +16,7 @@ class HomeVC: UIViewController {
     var delegate: HomeControllerDelegate?
     var global: GlobalVC = GlobalVC()
     
-    //Connections to the Home storyboard elements
+    // Connections to the Home storyboard elements
     @IBOutlet weak var popularLabel: UILabel?
     @IBOutlet weak var newLabel: UILabel?
     
@@ -31,12 +31,12 @@ class HomeVC: UIViewController {
     }
     
     // MARK: - Handlers
-    //Handles the side menu selection
+    // Toggles the menu, highlighting the selected option
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Home)
     }
     
-    //Set up the side menu and nav bar design
+    // Update the navigation bar
     func configureUI() {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
@@ -46,22 +46,22 @@ class HomeVC: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
     }
     
-    //Show the most popular and newest meal
+    // Show the most popular and newest meal
     func showMeals() {
         if global.meals.count == 0 {
             global.meals = global.data.load()
         }
-        //popular meal is defined by random index generator
+        // Retrieve a random meal, save this to use as a popular meal
         let randomIndex = Int.random(in: 0 ..< global.meals.count-1)
         
-        //newest meal is always the last meal in the array (because append)
+        // Newest meal is always the last meal in the array
         let newMealName: String = global.meals.last!.title
         let newMealImage: UIImage = global.meals.last!.image
         
         let popularMealName: String = global.meals[randomIndex].title
         let popularMealImage: UIImage = global.meals[randomIndex].image
         
-        //display the popular and new meals' name and image
+        // Display the popular and new meal names and images
         popularLabel?.text = popularMealName
         popularImage?.image = popularMealImage
         

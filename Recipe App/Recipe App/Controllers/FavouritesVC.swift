@@ -21,18 +21,18 @@ class FavouritesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        //Retrieve the favourite meals
-        meals = global.getFavourites()
+        meals = global.getFavourites() // Retrieves list of favourited meals from instanced global view controller
         FavTableView.delegate = self
         FavTableView.dataSource = self
     }
     
     // MARK: - Handlers
-    //Handles the side menu selection
+    // Toggles the menu, highlighting the selected option
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Meals)
     }
     
+    // Update the navigation bar
     func configureUI() {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
@@ -44,7 +44,7 @@ class FavouritesVC: UIViewController {
     
 }
 
-//Set up the format for displaying the favourite meals
+// Set up the format for displaying the favourite meals
 extension FavouritesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentMeal: Meal = global.meals[indexPath.row]
@@ -58,13 +58,13 @@ extension FavouritesVC: UITableViewDelegate {
     }
 }
 
-//Display the favourite meals
+// Display the favourite meals
 extension FavouritesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meals.count
     }
     
-    //Show meal's image and name
+    // Set meal image and name
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
         let meal = meals[indexPath.row]
