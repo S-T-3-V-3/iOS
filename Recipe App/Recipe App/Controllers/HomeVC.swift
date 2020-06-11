@@ -14,6 +14,7 @@ class HomeVC: UIViewController {
     var delegate: HomeControllerDelegate?
     var global: GlobalVC = GlobalVC()
     
+    //Connections to the Home storyboard elements
     @IBOutlet weak var popularLabel: UILabel?
     @IBOutlet weak var newLabel: UILabel?
     
@@ -32,7 +33,7 @@ class HomeVC: UIViewController {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Home)
     }
     
-    //Set up the menu and nav bar design
+    //Set up the side menu and nav bar design
     func configureUI() {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
@@ -47,14 +48,17 @@ class HomeVC: UIViewController {
         if global.meals.count == 0 {
             global.meals = global.data.load()
         }
+        //popular meal is defined by random index generator
         let randomIndex = Int.random(in: 0 ..< global.meals.count-1)
         
+        //newest meal is always the last meal in the array (because append)
         let newMealName: String = global.meals.last!.title
         let newMealImage: UIImage = global.meals.last!.image
         
         let popularMealName: String = global.meals[randomIndex].title
         let popularMealImage: UIImage = global.meals[randomIndex].image
         
+        //display the popular and new meals' name and image
         popularLabel?.text = popularMealName
         popularImage?.image = popularMealImage
         
