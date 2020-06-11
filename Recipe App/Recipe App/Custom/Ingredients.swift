@@ -19,12 +19,12 @@ enum measurementType: String {
     case pinch = "pinch"
     case drizzle = "drizzle"
     case bunch = "bunch"
-    case none = " "
+    case none = ""
 }
 
 struct ingredient {
     let name: String?
-    let quantity: Int?
+    var quantity: Int?
     let measurement: measurementType?
     
     init(name: String? = nil, quantity:Int? = nil, measurement: measurementType? = nil) {

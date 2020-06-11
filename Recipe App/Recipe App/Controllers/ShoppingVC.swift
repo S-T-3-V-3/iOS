@@ -9,30 +9,54 @@
 import Foundation
 import UIKit
 
+//This class is for setting up the shopping cart page
 class ShoppingVC: UIViewController {
     // MARK: - Properties
+    @IBOutlet weak var ShoppingTableView: UITableView!
     var delegate: HomeControllerDelegate?
     var global: GlobalVC!
     var selectedMeals: [Meal] = []
-    var combinedIngredients: [ingredient] = []
+    var ingredientList: [ingredient] = []
+    var combinedList: [ingredient] = []
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedMeals = global.meals
-        var str: String = ""
-        let test: String = String(global.meals.count)
-        str += test
-        for i in global.meals {
-            combinedIngredients.append(contentsOf: i.ingredients)
+        ShoppingTableView.dataSource = self
+        
+        //retrieve the selected meals and their ingredients
+        selectedMeals = global.getThisWeek()
+        for i in selectedMeals {
+            ingredientList.append(contentsOf: i.ingredients)
         }
+        combineIngredients()
         configureUI()
     }
     
-    
+    //Combine all the ingredients of the selected meals into an array
+    func combineIngredients() {
+        for i:ingredient in ingredientList {
+            if combinedList.count > 0 {
+                var exists = false
+                for j in 0 ... combinedList.count-1 {
+                    if i.name == combinedList[j].name {
+                        exists = true
+                        combinedList[j].quantity! += i.quantity!
+                    }
+                }
+                if !exists {
+                    combinedList.append(i)
+                }
+            }
+            else {
+                combinedList.append(i)
+            }
+        }
+    }
     
     // MARK: - Handlers
+    //Handles the side menu selection
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.ShoppingList)
     }
@@ -47,16 +71,17 @@ class ShoppingVC: UIViewController {
     }
 }
 
+//Shows the ingredients in a list format
 extension ShoppingVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return global.meals.count
+        return combinedList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingcell", for: indexPath) as! MealListItem
-        let i = combinedIngredients[indexPath.row]
-        cell.ingredientName!.text = i.name!
-        cell.ingredientQuantity!.text = String(i.quantity!) + i.measurement!.rawValue
+        let i = combinedList[indexPath.row]
+        cell.ingredientName.text = i.name!
+        cell.ingredientQuantity.text = String(i.quantity!) + " " + i.measurement!.rawValue
         return cell
     }
 }

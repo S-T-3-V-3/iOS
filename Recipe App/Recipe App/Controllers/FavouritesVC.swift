@@ -13,16 +13,24 @@ class FavouritesVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
     
+    @IBOutlet weak var FavTableView: UITableView!
+    var global: GlobalVC!
+    var meals: [Meal] = [Meal]()
+    
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
+        //Retrieve the favourite meals
+        meals = global.getFavourites()
+        FavTableView.delegate = self
+        FavTableView.dataSource = self
     }
     
     // MARK: - Handlers
+    //Handles the side menu selection
     @objc func handleMenuToggle() {
-            delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Favourites)
+        delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Meals)
     }
     
     func configureUI() {
@@ -30,7 +38,38 @@ class FavouritesVC: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        navigationItem.title = "Favourites"
+        navigationItem.title = "Favourite Meals"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
+    }
+    
+}
+
+//Set up the format for displaying the favourite meals
+extension FavouritesVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentMeal: Meal = global.meals[indexPath.row]
+        
+        self.present(global.mealDetailsController, animated: true, completion: nil)
+        
+        global.mealDetailsController.NavigationTitle.title = currentMeal.title
+        global.mealDetailsController.MealImage.image = currentMeal.image
+        global.mealDetailsController.instructions.text = currentMeal.display()
+        global.mealDetailsController.mealIndex = indexPath.row
+    }
+}
+
+//Display the favourite meals
+extension FavouritesVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meals.count
+    }
+    
+    //Show meal's image and name
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
+        let meal = meals[indexPath.row]
+        cell.Mealimage.image = meal.image
+        cell.Mealtext.text = meal.title
+        return cell
     }
 }

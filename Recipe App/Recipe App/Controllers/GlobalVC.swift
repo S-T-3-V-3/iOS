@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+/* This is a global class used by all other controllers. It performs the setup of each page including the toggling and usage of the side menu. It retrieves the meal data stored in the persistent database and stores it in an array here.
+ */
+
 class GlobalVC: UIViewController {
     // MARK: - Properties
     var menuController: MenuVC!
@@ -16,6 +20,7 @@ class GlobalVC: UIViewController {
     var meals = [Meal]()
     let data: Database = Database()
     
+    //Loading the relevant storyboard when button is clicked (since storyboard is broken up into separate storyboards)
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     let homeStoryBoard = UIStoryboard(name: "Home", bundle: nil)
     let mealsStoryBoard = UIStoryboard(name: "Meals", bundle: nil)
@@ -23,6 +28,7 @@ class GlobalVC: UIViewController {
     let weekStoryBoard = UIStoryboard(name: "Week", bundle: nil)
     let favoriteStoryBoard = UIStoryboard(name: "Favorite", bundle: nil)
     
+    //Related to the Views that'll be shown later when button is clicked
     var homeController: HomeVC!
     var weekController: ThisWeekVC!
     var mealsController: MealsVC!
@@ -64,6 +70,7 @@ class GlobalVC: UIViewController {
         showHomeController()
     }
     
+    //These functions determine the style of the menu
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -77,6 +84,8 @@ class GlobalVC: UIViewController {
     }
 
     // MARK: - Handlers
+    
+    //Enables user to add a meal to favourites list
     func addToFavourites(index: Int) {
         // Load favourits
         var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
@@ -94,12 +103,17 @@ class GlobalVC: UIViewController {
             favourites.append(index)
             UserDefaults.standard.set(favourites, forKey: "favourites")
         }
+        
+        viewDidLoad()
     }
     
+    //Enables removing a meal from the favourites list
     func removeFromFacourites(index: Int) {
         var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
         favourites.removeAll{$0 == index}
         UserDefaults.standard.set(favourites, forKey: "favourites")
+        
+        viewDidLoad()
     }
     
     // Return a list of current favourite meals
@@ -114,6 +128,7 @@ class GlobalVC: UIViewController {
         return favourites
     }
     
+    //Adds the meals in shopping cart to the This Week list
     func addToThisWeek(index: Int) {
         // Load this week
         var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
@@ -131,12 +146,17 @@ class GlobalVC: UIViewController {
             thisWeek.append(index)
             UserDefaults.standard.set(thisWeek, forKey: "thisWeek")
         }
+        
+        viewDidLoad()
     }
     
+    //Removes selected meals from the This Week list
     func removeFromThisWeek(index: Int) {
         var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
         thisWeek.removeAll{$0 == index}
         UserDefaults.standard.set(thisWeek, forKey: "thisWeek")
+        
+        viewDidLoad()
     }
     
     // Return a list of current favourite meals
@@ -151,6 +171,7 @@ class GlobalVC: UIViewController {
         return thisWeek
     }
     
+    //Configure the side menu
     func configureMenuController() {
         if menuController == nil {
             menuController = MenuVC()
@@ -161,6 +182,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Home page when Home button is clicked in the menu
     func showHomeController() {
         if currentController != UINavigationController(rootViewController: homeController) {
             if currentController != nil {
@@ -176,6 +198,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the This Week page when This Week button is clicked in the menu
     func showWeekController() {
         if currentController != UINavigationController(rootViewController: weekController) {
             if currentController != nil {
@@ -188,9 +211,11 @@ class GlobalVC: UIViewController {
             currentController.didMove(toParent: self)
             weekController.global = self
             weekController.configureUI()
+            weekController.meals = getThisWeek()
         }
     }
     
+    //Shows the Meals page when Meals button is clicked in the menu
     func showMealsController() {
         if currentController != UINavigationController(rootViewController: mealsController) {
             if currentController != nil {
@@ -206,6 +231,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Shopping List page when Shopping List button is clicked in the menu
     func showShoppingController() {
         if currentController != UINavigationController(rootViewController: shoppingController) {
             if currentController != nil {
@@ -221,6 +247,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Favourites page when Favourites button is clicked in the menu
     func showFavouritesController() {
         if currentController != UINavigationController(rootViewController: favouritesController) {
             if currentController != nil {
@@ -231,11 +258,12 @@ class GlobalVC: UIViewController {
             view.addSubview(currentController.view)
             addChild(currentController)
             currentController.didMove(toParent: self)
-            //favouritesController.global = self
+            favouritesController.global = self
             favouritesController.configureUI()
         }
     }
     
+    //Shows the Menu when the Menu button is clicked
     func showMenuController(shouldExpand: Bool, menuOption: MenuOptionValues?) {
         if shouldExpand {
             // show menu
@@ -255,6 +283,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the recipe for a meal when the meal is clicked
     func showMealDetails(mealID: Int) {
         let currentMeal = self.meals[mealID] as Meal
 
@@ -263,10 +292,9 @@ class GlobalVC: UIViewController {
         
                 
         mealDetailsController.MealImage.image = currentMeal.image
-        //mealDetailsController.MealTitle.text = currentMeal.title
-        
     }
     
+    //Run the relevant functions to show the page corresponding to the button clicked
     func didSelectMenuOption(menuOption: MenuOptionValues) {
         switch menuOption {
             case .Home:
@@ -289,6 +317,7 @@ class GlobalVC: UIViewController {
     }
 }
 
+//Handle the side menu selection
 extension GlobalVC: HomeControllerDelegate {
     func handleMenuToggle(forMenuOption menuOption: MenuOptionValues?) {
         if !isMenuExpanded {
