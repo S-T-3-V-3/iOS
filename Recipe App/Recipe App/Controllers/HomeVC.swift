@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+//This class is linked to Home storyboard. It is the Home page.
 class HomeVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
@@ -29,6 +31,7 @@ class HomeVC: UIViewController {
     }
     
     // MARK: - Handlers
+    //Handles the side menu selection
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Home)
     }

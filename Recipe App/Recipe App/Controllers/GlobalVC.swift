@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+/* This is a global class used by all other controllers. It performs the setup of each page including the toggling and usage of the side menu. It retrieves the meal data stored in the persistent database and stores it in an array here.
+ */
+
 class GlobalVC: UIViewController {
     // MARK: - Properties
     var menuController: MenuVC!
@@ -16,6 +20,7 @@ class GlobalVC: UIViewController {
     var meals = [Meal]()
     let data: Database = Database()
     
+    //Loading the relevant storyboard when button is clicked (since storyboard is broken up into separate storyboards)
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     let homeStoryBoard = UIStoryboard(name: "Home", bundle: nil)
     let mealsStoryBoard = UIStoryboard(name: "Meals", bundle: nil)
@@ -23,6 +28,7 @@ class GlobalVC: UIViewController {
     let weekStoryBoard = UIStoryboard(name: "Week", bundle: nil)
     let favoriteStoryBoard = UIStoryboard(name: "Favorite", bundle: nil)
     
+    //Related to the Views that'll be shown later when button is clicked
     var homeController: HomeVC!
     var weekController: ThisWeekVC!
     var mealsController: MealsVC!
@@ -286,10 +292,9 @@ class GlobalVC: UIViewController {
         
                 
         mealDetailsController.MealImage.image = currentMeal.image
-        //mealDetailsController.MealTitle.text = currentMeal.title
-        //mealDetailsController.instructionText.text = "siba" //currentMeal.display()
     }
     
+    //Run the relevant functions to show the page corresponding to the button clicked
     func didSelectMenuOption(menuOption: MenuOptionValues) {
         switch menuOption {
             case .Home:
@@ -312,6 +317,7 @@ class GlobalVC: UIViewController {
     }
 }
 
+//Handle the side menu selection
 extension GlobalVC: HomeControllerDelegate {
     func handleMenuToggle(forMenuOption menuOption: MenuOptionValues?) {
         if !isMenuExpanded {

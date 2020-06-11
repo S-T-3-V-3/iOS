@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+//This class is for setting up the This Week page which shows meals chosen for this week
 class ThisWeekVC: UIViewController{
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
@@ -26,10 +28,12 @@ class ThisWeekVC: UIViewController{
         weekTableView.delegate = self
         weekTableView.dataSource = self
         
+        //Retrieve the meals chosen this week
         meals = global.getThisWeek()
     }
    
     // MARK: - Handlers
+    //Handles the side menu selection
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Meals)
     }
@@ -45,6 +49,7 @@ class ThisWeekVC: UIViewController{
     
 }
 
+//Set up the format of meals displayed
 extension ThisWeekVC : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentMeal: Meal = global.meals[indexPath.row]
@@ -58,11 +63,13 @@ extension ThisWeekVC : UITableViewDelegate{
     }
 }
 
+//Display the meals in the table
 extension ThisWeekVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meals!.count
     }
     
+    //Show meal name and image
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
         let meal = meals![indexPath.row]

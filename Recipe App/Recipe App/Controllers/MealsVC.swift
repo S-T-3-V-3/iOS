@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//This class is for setting up the Meals page which shows all meals available
 class MealsVC: UIViewController {
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
@@ -26,10 +27,12 @@ class MealsVC: UIViewController {
         MealTableView.delegate = self
         MealTableView.dataSource = self
         
+        //Retrieve all meals stored in the persistent database
         meals = global.meals
     }
     
     // MARK: - Handlers
+    //Handles the side menu selection
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.Meals)
     }
@@ -45,6 +48,7 @@ class MealsVC: UIViewController {
     
 }
 
+//Set up the table format for displaying the meals list
 extension MealsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentMeal: Meal = global.meals[indexPath.row]
@@ -58,11 +62,13 @@ extension MealsVC: UITableViewDelegate {
     }
 }
 
+//Display the meal items in the list
 extension MealsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return meals.count
     }
     
+    //Show meal name and image
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealItem", for: indexPath) as! MealListItem
         let meal = meals[indexPath.row]

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//This class is for setting up the shopping cart page
 class ShoppingVC: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var ShoppingTableView: UITableView!
@@ -24,6 +25,7 @@ class ShoppingVC: UIViewController {
         
         ShoppingTableView.dataSource = self
         
+        //retrieve the selected meals and their ingredients
         selectedMeals = global.getThisWeek()
         for i in selectedMeals {
             ingredientList.append(contentsOf: i.ingredients)
@@ -32,6 +34,7 @@ class ShoppingVC: UIViewController {
         configureUI()
     }
     
+    //Combine all the ingredients of the selected meals into an array
     func combineIngredients() {
         for i:ingredient in ingredientList {
             if combinedList.count > 0 {
@@ -53,6 +56,7 @@ class ShoppingVC: UIViewController {
     }
     
     // MARK: - Handlers
+    //Handles the side menu selection
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: MenuOptionValues.ShoppingList)
     }
@@ -67,6 +71,7 @@ class ShoppingVC: UIViewController {
     }
 }
 
+//Shows the ingredients in a list format
 extension ShoppingVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return combinedList.count
