@@ -64,6 +64,7 @@ class GlobalVC: UIViewController {
         showHomeController()
     }
     
+    //These functions determine the style of the menu
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -77,6 +78,8 @@ class GlobalVC: UIViewController {
     }
 
     // MARK: - Handlers
+    
+    //Enables user to add a meal to favourites list
     func addToFavourites(index: Int) {
         // Load favourits
         var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
@@ -98,6 +101,7 @@ class GlobalVC: UIViewController {
         viewDidLoad()
     }
     
+    //Enables removing a meal from the favourites list
     func removeFromFacourites(index: Int) {
         var favourites = UserDefaults.standard.array(forKey: "favourites") as? [Int] ?? [Int]()
         favourites.removeAll{$0 == index}
@@ -118,6 +122,7 @@ class GlobalVC: UIViewController {
         return favourites
     }
     
+    //Adds the meals in shopping cart to the This Week list
     func addToThisWeek(index: Int) {
         // Load this week
         var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
@@ -139,6 +144,7 @@ class GlobalVC: UIViewController {
         viewDidLoad()
     }
     
+    //Removes selected meals from the This Week list
     func removeFromThisWeek(index: Int) {
         var thisWeek = UserDefaults.standard.array(forKey: "thisWeek") as? [Int] ?? [Int]()
         thisWeek.removeAll{$0 == index}
@@ -159,6 +165,7 @@ class GlobalVC: UIViewController {
         return thisWeek
     }
     
+    //Configure the side menu
     func configureMenuController() {
         if menuController == nil {
             menuController = MenuVC()
@@ -169,6 +176,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Home page when Home button is clicked in the menu
     func showHomeController() {
         if currentController != UINavigationController(rootViewController: homeController) {
             if currentController != nil {
@@ -184,6 +192,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the This Week page when This Week button is clicked in the menu
     func showWeekController() {
         if currentController != UINavigationController(rootViewController: weekController) {
             if currentController != nil {
@@ -200,6 +209,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Meals page when Meals button is clicked in the menu
     func showMealsController() {
         if currentController != UINavigationController(rootViewController: mealsController) {
             if currentController != nil {
@@ -215,6 +225,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Shopping List page when Shopping List button is clicked in the menu
     func showShoppingController() {
         if currentController != UINavigationController(rootViewController: shoppingController) {
             if currentController != nil {
@@ -230,6 +241,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Favourites page when Favourites button is clicked in the menu
     func showFavouritesController() {
         if currentController != UINavigationController(rootViewController: favouritesController) {
             if currentController != nil {
@@ -245,6 +257,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the Menu when the Menu button is clicked
     func showMenuController(shouldExpand: Bool, menuOption: MenuOptionValues?) {
         if shouldExpand {
             // show menu
@@ -264,6 +277,7 @@ class GlobalVC: UIViewController {
         }
     }
     
+    //Shows the recipe for a meal when the meal is clicked
     func showMealDetails(mealID: Int) {
         let currentMeal = self.meals[mealID] as Meal
 
