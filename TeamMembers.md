@@ -13,12 +13,12 @@ Member 2: Kelvin Luong
 Student ID: 13035946
 Email: 13035946@student.uts.edu.au
 
-Member 3:
-Student ID:
-Email:
+Member 3: Yunhan Zhan
+Student ID: 12840221
+Email: 12840221@student.uts.edu.au
 
 
-Member 4:
-Student ID:
-Email:
+Member 4: Seul Lee
+Student ID: 13331879
+Email: 13331879@student.uts.edu.au
 
